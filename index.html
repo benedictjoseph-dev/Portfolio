@@ -1030,7 +1030,7 @@
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.play();
+        entry.target.play().catch(e => console.log('Play failed:', e));
       } else {
         entry.target.pause();
       }
