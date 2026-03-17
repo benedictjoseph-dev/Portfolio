@@ -795,26 +795,30 @@
   <div class="section-label">04 — Projects</div>
   <h2 class="section-title reveal">Featured<br>Work</h2>
   <div class="projects-grid">
-    <div class="project-card reveal">
-      <div class="project-thumb project-thumb-gradient-1">
-        <span style="position:relative;z-index:1;font-size:64px;">🤖</span>
-      </div>
-      <div class="project-body">
-        <div class="project-type">Unity 3D · Puzzle Platformer</div>
-        <h3 class="project-title">BATTR-BOT</h3>
-        <p class="project-desc">A puzzle-platformer built around a finite power system — players strategically toggle ability modules (Jump, Light, Magnet) across 4 escalating levels, creating resource decisions without combat. Dynamic lighting and darkness are core gameplay mechanics.</p>
-        <div class="project-tags">
-          <span class="project-tag">Unity 3D</span>
-          <span class="project-tag">C#</span>
-          <span class="project-tag">Dynamic Lighting</span>
-          <span class="project-tag">Adaptive Audio</span>
-          <span class="project-tag">State Machine</span>
-        </div>
-        <div class="project-links">
-          <a href="https://bend1ct.itch.io/battr-bot" target="_blank" rel="noopener" class="project-link">Play on itch.io ↗</a>
-        </div>
-      </div>
+    <div class="project-card reveal" data-video>
+  <div class="project-thumb">
+    <video
+      src="https://res.cloudinary.com/dmoylsqtb/video/upload/v1773747217/BATTR_BOT_zytjnc.mp4"
+      muted loop playsinline
+      style="width:100%; height:100%; object-fit:cover; display:block;">
+    </video>
+  </div>
+  <div class="project-body">
+    <div class="project-type">Unity 3D · Puzzle Platformer</div>
+    <h3 class="project-title">BATTR-BOT</h3>
+    <p class="project-desc">A puzzle-platformer built around a finite power system — players strategically toggle ability modules (Jump, Light, Magnet) across 4 escalating levels, creating resource decisions without combat. Dynamic lighting and darkness are core gameplay mechanics.</p>
+    <div class="project-tags">
+      <span class="project-tag">Unity 3D</span>
+      <span class="project-tag">C#</span>
+      <span class="project-tag">Dynamic Lighting</span>
+      <span class="project-tag">Adaptive Audio</span>
+      <span class="project-tag">State Machine</span>
     </div>
+    <div class="project-links">
+      <a href="https://bend1ct.itch.io/battr-bot" target="_blank" rel="noopener" class="project-link">Play on itch.io ↗</a>
+    </div>
+  </div>
+</div>
     <div class="project-card reveal reveal-delay-1">
       <div class="project-thumb project-thumb-gradient-2">
         <span style="position:relative;z-index:1;font-size:64px;">🏙️</span>
@@ -1016,6 +1020,20 @@
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
   }
+</script>
+<script>
+  const videos = document.querySelectorAll('[data-video] video');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.play();
+      } else {
+        entry.target.pause();
+      }
+    });
+  }, { threshold: 0.4 });
+
+  videos.forEach(v => observer.observe(v));
 </script>
 </body>
 </html>
