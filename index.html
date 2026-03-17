@@ -1027,7 +1027,7 @@
 </script>
 <script>
   const videos = document.querySelectorAll('[data-video] video');
-  const observer = new IntersectionObserver((entries) => {
+  const videoObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.play().catch(e => console.log('Play failed:', e));
@@ -1037,7 +1037,7 @@
     });
   }, { threshold: 0.0 });
 
-  videos.forEach(v => observer.observe(v));
+  videos.forEach(v => videoObserver.observe(v));
 </script>
 </body>
 </html>
